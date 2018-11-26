@@ -33,5 +33,5 @@ services:
             - 8080:80
         links:
             - mysql:db
-        volumes:
-            - ./phpmyadmin/etc/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+        #volumes:
+        #    - ./phpmyadmin/etc/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
