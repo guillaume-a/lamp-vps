@@ -11,8 +11,17 @@ services:
             - ./web/etc/apache2/certs:/etc/apache2/certs
             - ./web/usr/local/etc/php/conf.d/10-custom.ini:/usr/local/etc/php/conf.d/10-custom.ini
             - ./web/var/www:/var/www/
+            - ./letsencrypt:/etc/nginx/certs
+            - ./letsencrypt/www:/var/www/letsencrypt
         links:
             - mysql:db
+
+    letsencrypt:
+        image: ./letsencrypt
+        command: /bin/true
+        volumes:
+          - ./letsencrypt:/etc/letsencrypt
+          - ./letsencrypt/www:/var/www/letsencrypt
 
     mysql:
         image: mysql:5.5

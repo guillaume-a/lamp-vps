@@ -15,11 +15,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 RUN a2enmod rewrite ssl headers
 RUN service apache2 restart
 
-# CERTBOT
-RUN echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/sources.list.d/docker.list
-RUN apt-get update -y && apt-get install -y python-certbot-apache -t stretch-backports
-
-#environment
+# environment
 RUN apt-get install vim -y
 
 # NODE / NPM
