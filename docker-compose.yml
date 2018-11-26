@@ -18,7 +18,6 @@ services:
 
     letsencrypt:
         image: ./letsencrypt
-        command: /bin/true
         volumes:
           - ./letsencrypt:/etc/letsencrypt
           - ./letsencrypt/www:/var/www/letsencrypt
