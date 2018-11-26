@@ -17,7 +17,7 @@ RUN service apache2 restart
 
 # CERTBOT
 RUN echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/sources.list.d/docker.list
-RUN apt-get update -y && apt-get install python-certbot-apache -t stretch-backports
+RUN apt-get update -y && apt-get install -y python-certbot-apache -t stretch-backports
 
 # NODE / NPM
 #RUN apt-get install -y wget
