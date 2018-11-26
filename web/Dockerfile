@@ -16,7 +16,7 @@ RUN a2enmod rewrite ssl headers
 RUN service apache2 restart
 
 # CERTBOT
-RUN deb http://ftp.debian.org/debian stretch-backports main
+RUN echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" >> /etc/apt/sources.list.d/docker.list
 RUN apt-get update -y && apt-get install python-certbot-apache -t stretch-backports
 
 # NODE / NPM
