@@ -10,7 +10,7 @@ services:
             - ./web/etc/apache2/sites-enabled:/etc/apache2/sites-enabled
             - ./web/usr/local/etc/php/conf.d/10-custom.ini:/usr/local/etc/php/conf.d/10-custom.ini
             - ./web/var/www:/var/www/
-            - ./letsencrypt/certs:/etc/apache2/certs
+            - ./letsencrypt/certs:/etc/letsencrypt
             - ./letsencrypt/www:/var/www/letsencrypt
         links:
             - mysql:db
