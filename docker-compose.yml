@@ -8,19 +8,18 @@ services:
             - 443:443
         volumes:
             - ./web/etc/apache2/sites-enabled:/etc/apache2/sites-enabled
-            - ./web/etc/apache2/certs:/etc/apache2/certs
             - ./web/usr/local/etc/php/conf.d/10-custom.ini:/usr/local/etc/php/conf.d/10-custom.ini
             - ./web/var/www:/var/www/
-            - ./letsencrypt:/etc/nginx/certs
+            - ./letsencrypt/certs:/etc/apache2/certs
             - ./letsencrypt/www:/var/www/letsencrypt
         links:
             - mysql:db
 
     letsencrypt:
         build: ./letsencrypt
-        command: bin/true   
+        command: bin/true
         volumes:
-          - ./letsencrypt:/etc/letsencrypt
+          - ./letsencrypt/certs:/etc/letsencrypt
           - ./letsencrypt/www:/var/www/letsencrypt
 
     mysql:
