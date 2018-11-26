@@ -17,7 +17,8 @@ services:
             - mysql:db
 
     letsencrypt:
-        image: ./letsencrypt
+        build: ./letsencrypt
+        command: bin/true   
         volumes:
           - ./letsencrypt:/etc/letsencrypt
           - ./letsencrypt/www:/var/www/letsencrypt
