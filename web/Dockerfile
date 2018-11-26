@@ -16,7 +16,8 @@ RUN a2enmod rewrite ssl headers
 RUN service apache2 restart
 
 # CERTBOT
-RUN apt-get install python-certbot-apache -t stretch-backports
+RUN deb http://ftp.debian.org/debian stretch-backports main
+RUN apt-get update -y && apt-get install python-certbot-apache -t stretch-backports
 
 # NODE / NPM
 #RUN apt-get install -y wget
